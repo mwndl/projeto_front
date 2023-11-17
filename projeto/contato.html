@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.6.4.min.js"></script>
+    <script src="api.js"></script>
     <title>Contato</title>
 </head>
 <body>
@@ -15,7 +17,7 @@
                 <p> | </p>
                 <a href="#" style="font-weight: bold;">Contato</a>
                 <p> | </p>
-                <a href="#">Área Admin</a>
+                <a href="login.html">Área Admin</a>
             </div>
         </div>
         <div class="main">
@@ -24,27 +26,50 @@
                 <div class="ctt_form">
                     <div class="ctt_name">
                         <p>Name</p>
-                        <input>
+                        <input id="nameInput"> <!-- Add an ID to identify the input -->
                     </div>
                     <div class="ctt_email">
                         <p>E-mail</p>
-                        <input>
+                        <input id="emailInput"> <!-- Add an ID to identify the input -->
                     </div>
                     <div class="ctt_message">
                         <p>Mensagem</p>
                         <div class="message_box">
-                            <textarea></textarea>
+                            <textarea id="messageInput"></textarea> <!-- Add an ID to identify the textarea -->
                         </div>
                     </div>
                     <div class="form_footer">
-                        <div class="form_send_btn">
+                        <div class="form_send_btn" id="sendButton">
                             <p>Enviar</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="footer">Nome do Site | © 2023</div>
+        <div class="footer">Website | © 2023</div>
     </div>
 </body>
+<script src="jquery-3.6.4.min.js"></script>
+<script src="api.js"></script>
+<script>
+    $(document).ready(function () {
+        // Add an event listener to the "Enviar" button
+        $("#sendButton").on("click", function () {
+            // Get input values
+            var name = $("#nameInput").val();
+            var email = $("#emailInput").val();
+            var message = $("#messageInput").val();
+
+            // Create an object with the input values
+            var messageObject = {
+                name: name,
+                email: email,
+                message: message
+            };
+
+            // Call the inserirMensagem function with the object
+            inserirMensagem(messageObject);
+        });
+    });
+</script>
 </html>
