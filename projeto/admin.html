@@ -20,12 +20,52 @@
         </div>
         <div class="main">
             <div class="page_title">Área Admin</div>
-            <div class="ctt_form_main">
+            <div class="admin_table">
+                <table id="mensagemTable">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Mensagem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="footer">Website | © 2023</div>
     </div>
+
+    <script src="jquery-3.6.4.min.js"></script>
+    <script src="api.js"></script>
+    <script>
+        // Chama a função para obter mensagens ao carregar a página
+        $(document).ready(function () {
+            exibirMensagens();
+        });
+    
+        function exibirMensagens() {
+            // Obtém as mensagens da API
+            var mensagens = obterMensagens();
+    
+            // Seleciona o corpo da tabela
+            var tabelaBody = $('#mensagemTable tbody');
+    
+            // Limpa a tabela antes de adicionar novas linhas
+            tabelaBody.empty();
+    
+            // Adiciona cada mensagem à tabela, invertendo a ordem
+            for (var i = mensagens.length - 1; i >= 0; i--) {
+                var mensagem = mensagens[i];
+                var row = $('<tr>');
+                row.append('<td>' + mensagem.nome + '</td>');
+                row.append('<td>' + mensagem.email + '</td>');
+                row.append('<td>' + mensagem.mensagem + '</td>');
+                tabelaBody.append(row);
+            }
+        }
+    </script>
+    
 </body>
-<script src="jquery-3.6.4.min.js"></script>
-<script src="api.js"></script>
 </html>

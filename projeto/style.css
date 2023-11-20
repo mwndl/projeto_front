@@ -111,7 +111,7 @@
 
 /* Contato */
 .ctt_form_main {
-    height: 85%;
+    height: 80%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -119,6 +119,7 @@
     justify-content: center;
     padding: 10px;
     box-sizing: border-box;
+    color: black;
 }
 
 .ctt_form {
@@ -232,3 +233,39 @@
 .login-container button:hover {
     background-color: #45a049;
 }
+
+.admin_table {
+    height: 90%; /* Alterado para 100% para ocupar toda a altura disponível */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    color: black;
+    border: 1px solid black;
+    overflow: auto;
+}
+
+#mensagemTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#mensagemTable th, #mensagemTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#mensagemTable th {
+    background-color: #f2f2f2;
+}
+
+
+
+

@@ -52,24 +52,43 @@
 <script src="jquery-3.6.4.min.js"></script>
 <script src="api.js"></script>
 <script>
-    $(document).ready(function () {
-        // Add an event listener to the "Enviar" button
-        $("#sendButton").on("click", function () {
-            // Get input values
-            var name = $("#nameInput").val();
-            var email = $("#emailInput").val();
-            var message = $("#messageInput").val();
+$(document).ready(function () {
+    // Add an event listener to the "Enviar" button
+    $("#sendButton").on("click", function () {
+        // Get input values
+        var name = $("#nameInput").val();
+        var email = $("#emailInput").val();
+        var message = $("#messageInput").val();
 
-            // Create an object with the input values
-            var messageObject = {
-                name: name,
-                email: email,
-                message: message
-            };
+        console.log("Name:", name);
+        console.log("Email:", email);
+        console.log("Message:", message);
 
-            // Call the inserirMensagem function with the object
-            inserirMensagem(messageObject);
-        });
+        // Check if any of the input values are empty
+        if (!name || !email || !message) {
+            // Display an alert if any field is empty
+            alert("Por favor, preencha todos os campos antes de enviar.");
+            return; // Stop further execution
+        }
+
+        // Create an object with the input values
+        var messageObject = {
+            nome: name,
+            email: email,
+            mensagem: message
+        };
+
+        // Call the inserirMensagem function with the object
+        inserirMensagem(messageObject);
+
+        // Display a success message
+        alert("Mensagem enviada com sucesso!");
+        
+        // Optionally, you can clear the input fields after successful submission
+        $("#nameInput").val('');
+        $("#emailInput").val('');
+        $("#messageInput").val('');
     });
+});
 </script>
 </html>
